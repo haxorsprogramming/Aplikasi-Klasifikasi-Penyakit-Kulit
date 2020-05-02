@@ -1,49 +1,128 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+<html lang="en">
 
-    http://www.apache.org/licenses/LICENSE-2.0
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="csrf-token" content="uUdSdGjVox8G9Sgk8NHK4Jxfg8g6MJTquA2xij1y" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1", shrink-to-fit="no">
+  <title>Aplikasi Klasifikasi Penyakit Kulit</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="ladun/login/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="ladun/login/vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
+  <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="ladun/login/css/style.css">
+  <!-- endinject -->
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="main-panel">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+          <div class="row w-100 mx-0">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                <div class="brand-logo" style='text-align:center;'>
+                  <img src="ladun/login/images/logo_uin.png" alt="logo" style='width:100px; '>
+                </div>
+                <div style='text-align:center;'>
+                <h3><strong>Aplikasi Klasifikasi Penyakit Kulit</strong></h3>
+
+                <div>
+                <div id='frm_login'>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-lg" id="txtUsername" placeholder="Username">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control form-control-lg" id="txtPassword" placeholder="Password">
+                      </div>
+                      <div id='capNotifLogin'>
+
+                      </div>
+                      <div class="mt-3">
+                        <a id='btnMasuk' class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="#!">Masuk</a>
+                      </div>
+
+                </div>
+
+                  <div class="mt-2">
+                  <div>
+
+                  </div>
+                  <div style='padding-top:22px;'>
+                      <h5 class="font-weight-light">By : Rini Fadillah</h5>
+                      <i><strong><span id='divStatServer'></span></strong></i>
+                    </div>
+                </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- base:js -->
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hasil Pengujian</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <tr>
+            <td>Kode Uji</td><td id='capKode'>-</td>
+          </tr>
+          <tr>
+            <td>Nama Pelanggan</td><td id='capPelanggan'>-</td>
+          </tr>
+          <tr>
+            <td>Merek Mobil</td><td id='capMobil'>-</td>
+          </tr>
+          <tr>
+            <td>Waktu Uji</td><td id='capWaktu'>-</td>
+          </tr>
+          <tr>
+            <td>Kerusakan</td><td id='capKerusakan'>-</td>
+          </tr>
+          <tr>
+            <td>Solusi</td><td id='capSolusi'>-</td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="ladun/login/vendors/base/vendor.bundle.base.js"></script>
+  <script src="https://demo.getstisla.com/assets/modules/izitoast/js/iziToast.min.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="ladun/login/js/template.js"></script>
+  <script src='ladun/login/js/login.js'></script>
+  <!-- endinject -->
+</body>
+
 </html>
