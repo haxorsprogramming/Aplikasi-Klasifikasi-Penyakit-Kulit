@@ -8,7 +8,14 @@ var divUtama = new Vue({
     pengembang : 'Rini Fadillah'
   }, methods: {
     masukAtc : function(){
-      loginSistem();
+      let username = document.getElementById('txtUsername').value; 
+      let password = document.getElementById('txtPassword').value;
+      if(username === '' || password === ''){
+        isiField();
+      }else{
+
+      }
+      // loginSistem();
     }
   }
 });
@@ -25,5 +32,15 @@ function fakeLogin()
     text: 'Server tidak bisa diakses..',
     icon: 'error',
     confirmButtonText: 'Kembali'
-  })
+  });
+}
+
+function isiField()
+{
+  Swal.fire({
+    title: 'Isi Field!!',
+    text: 'Harap isi username & password ..',
+    icon: 'warning',
+    confirmButtonText: 'Kembali'
+  });
 }
