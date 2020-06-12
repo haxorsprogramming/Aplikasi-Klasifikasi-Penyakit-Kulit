@@ -49,6 +49,11 @@ function prosesLogin(username, password)
 {
   $.post('http://api.haxors.or.id/rini/test.php',{'username':username, 'password':password}, function(data){
     let obj = JSON.parse(data);
-    console.log(obj);
+    let status = obj.status;
+    if(status === 'sukses'){
+      window.location.assign('mainApp/main.html');
+    }else{
+
+    }
   });
 }
