@@ -13,7 +13,7 @@ var divUtama = new Vue({
       if(username === '' || password === ''){
         isiField();
       }else{
-        
+        prosesLogin(username, password);
       }
       // loginSistem();
     }
@@ -22,7 +22,7 @@ var divUtama = new Vue({
 
 function loginSistem()
 {
-  fakeLogin()
+  fakeLogin();
 }
 
 function fakeLogin()
@@ -42,5 +42,13 @@ function isiField()
     text: 'Harap isi username & password ..',
     icon: 'warning',
     confirmButtonText: 'Kembali'
+  });
+}
+
+function prosesLogin(username, password)
+{
+  $.post('http://api.haxors.or.id/rini/test.php',{'username':username, 'password':password}, function(data){
+    let obj = JSON.parse(data);
+    console.log(obj);
   });
 }
