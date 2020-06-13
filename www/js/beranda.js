@@ -19,14 +19,18 @@ $(document).ready(function () {
     $(".button-collapse").sideNav("hide");
   });
 
-  $("#btnPengujian").click(function () {
-    $("#divUtama").html(loading);
-    $("#divUtama").load("pengujian.html");
-    $("#judulApps").html("Pengujian");
-    $(".button-collapse").sideNav("hide");
+  $('#btnDaftarPenyakit').click(function(){
+    updateSistem();
   });
 
   function updateSistem() {
-    Materialize.toast("Server realtime sedang berjalan", 1100);
+    Materialize.toast("Tak ada respon dari server", 1100);
+  }
+});
+
+var divApps = new Vue({
+  el : '#divApps',
+  data : {
+    developer : 'Rini Fadillah',
   }
 });
