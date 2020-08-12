@@ -12,25 +12,24 @@ $(document).ready(function () {
     location.reload();
   });
 
-  $("#btnKlinik").click(function () {
-    $("#divUtama").html(loading);
-    $("#divUtama").load("klinik.html");
-    $("#judulApps").html("Data Klinik");
-    $(".button-collapse").sideNav("hide");
-  });
-
-  $('#btnDaftarPenyakit').click(function(){
-    updateSistem();
-  });
 
   function updateSistem() {
+    $('#divUtama').load('')
     Materialize.toast("Tak ada respon dari server", 1100);
   }
+
 });
 
 var divApps = new Vue({
   el : '#divApps',
   data : {
     developer : 'Rini Fadillah',
+  },
+  methods : {
+    pengujianAtc : function()
+    {
+      $('#divUtama').load('pengujian.html');
+      $('.button-collapse').sideNav('hide');
+    }
   }
 });
