@@ -1,6 +1,56 @@
-<div>
-<input type="file" class="form-control" id='txtFoto' name='txtFoto' onchange="getImg()">
-<hr/>
-<img class="img-thumnail imgPrev" src='../img/def.png'>
+<div class="row" style="margin-top: 20px;">
+    <div>
+        <h5 class="light">Pengujian</h5><br/>
+        <small>Silahkan ambil gambar</small>
+    </div>
+  <div class="file-field input-field" style="padding-bottom: 25px;">
+    <div class="btn">
+       <div class="icon-preview col s6 m3"><i class="material-icons dp48">camera_alt</i></div>
+      <input type="file" id="txtFoto" name="txtFoto" onchange="getImg()" />
+    </div>
+  </div>
+  <div style="padding-top: 30px;" class="center-align">
+    <img class="materialboxed imgPrev" src="../img/def.png" style="width: 100%;" />
+  </div>
 </div>
-<script src='../js/pengujian.js'></script>
+<hr />
+<div id='divHasilAnalisa' style="margin-bottom: 30px;">
+  <h4 class="light">Hasil Analisa Citra</h4>
+  <table class="striped">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Nilai Kompresi Citra</th>
+            <th>Normalisasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>Alpha</td><td>{{alpha}}</td><td>{{normalisasiCitra[0].alpha}}</td>
+        </tr>
+          <tr>
+            <td>Black</td><td>{{black}}</td><td>{{normalisasiCitra[0].black}}</td>
+        </tr>
+        <tr>
+            <td>Blue</td><td>{{blue}}</td><td>{{normalisasiCitra[0].blue}}</td>
+        </tr>
+        <tr>
+            <td>Brightness</td><td>{{brightness}}</td><td>{{normalisasiCitra[0].brightness}}</td>
+        </tr>
+        <tr>
+            <td>Green</td><td>{{green}}</td><td>{{normalisasiCitra[0].green}}</td>
+        </tr>
+        <tr>
+            <td>Red</td><td>{{red}}</td><td>{{normalisasiCitra[0].red}}</td>
+        </tr>
+        <tr>
+            <td>White</td><td>{{white}}</td><td>{{normalisasiCitra[0].white}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <div style="margin-top:15px;">
+    <a href='#!' class="waves-effect waves-light btn"><i class="material-icons left">assessment</i> Proses Perhitungan Bayes</a>
+  </div>
+  
+</div>
+<script src="../js/pengujian.js"></script>
