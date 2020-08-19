@@ -15,6 +15,12 @@ var divHasilAnalisa = new Vue({
         red : '',
         white : '',
         normalisasiCitra : [{alpha : 0, black : 0, blue : 0, brightness : 0, green : 0, red : 0, white : 0}]
+    },
+    methods : {
+        hitungAtc : function()
+        {
+            console.log("Tes");
+        }
     }
 });
 
