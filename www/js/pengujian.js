@@ -1,9 +1,9 @@
-//route 
+// ROUTE 
 var rGetSampel = 'http://api.haxors.or.id/rini/getNormalisasiSampel.php';
-//inisialisasi 
+// INISIALISASI 
 $('#divHasilAnalisa').hide();
 $('.materialboxed').materialbox();
-
+// VUE OBJECT 
 var divHasilAnalisa = new Vue({
     el : '#divHasilAnalisa',
     data : {

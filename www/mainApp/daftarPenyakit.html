@@ -1,3 +1,26 @@
-<div class="row" style="margin-top: 20px;">
-<h3>Daftar penyakit</h3>
+<div class="row" style="margin-top: 20px;" id="divDaftarPenyakit">
+    <h5 class="light">Daftar penyakit</h5>
+    <div>
+        <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Penyakit</th><th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for='lp in listPenyakit'>
+                    <td>
+                        <img :src="'../img/cluster/'+lp.kdCluster+'.png'" style="width: 150px;"><br/>
+                        <span>{{lp.nama}}</span>
+                    </td>
+                    <td><a href='#!' class="btn"><i class="material-icons">add</i> Detail</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<script src="../js/daftarPenyakit.js"></script>
