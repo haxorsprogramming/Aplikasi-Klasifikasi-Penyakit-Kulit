@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
   $(".materialboxed").materialbox();
   $(".button-collapse").sideNav();
   $("select").material_select();
@@ -11,7 +11,6 @@ $(document).ready(function () {
   $("#homeSideNav").click(function () {
     location.reload();
   });
-
 
   function updateSistem() {
     $('#divUtama').load('')
@@ -29,6 +28,11 @@ var divApps = new Vue({
     pengujianAtc : function()
     {
       $('#divUtama').load('pengujian.html');
+      $('.button-collapse').sideNav('hide');
+    },
+    daftarPenyakitAtc : function()
+    {
+      $('#divUtama').load('daftarPenyakit.html');
       $('.button-collapse').sideNav('hide');
     }
   }
