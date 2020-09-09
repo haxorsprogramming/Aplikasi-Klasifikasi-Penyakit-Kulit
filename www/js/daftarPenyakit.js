@@ -7,7 +7,10 @@ var divDaftarPenyakit = new Vue({
         listPenyakit : []
     },
     methods : {
-
+        kembaliAtc : function()
+        {
+            
+        }
     }
 });
 //INISIALISASI
