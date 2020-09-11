@@ -1,59 +1,56 @@
-$(document).ready(function(){
-  document.getElementById('txtUsername').focus();
-});
-
+// ROUTE 
+const routeToLogin = "http://api.haxors.or.id/rini/test.php";
+// VUE OBJECT
 var divUtama = new Vue({
-  el : '#divUtama',
-  data : {
-    pengembang : 'Rini Fadillah'
-  }, methods: {
-    masukAtc : function(){
-      let username = document.getElementById('txtUsername').value; 
-      let password = document.getElementById('txtPassword').value;
-      if(username === '' || password === ''){
+  el: "#divUtama",
+  data: {
+    pengembang: "Rini Fadillah",
+  },
+  methods: {
+    masukAtc: function () {
+      let username = document.getElementById("txtUsername").value;
+      let password = document.getElementById("txtPassword").value;
+      if (username === "" || password === "") {
         isiField();
-      }else{
+      } else {
         prosesLogin(username, password);
       }
-      // loginSistem();
-    }
-  }
+    },
+  },
 });
 
-function loginSistem()
-{
+// INISIALISASI 
+
+
+// FUNCTION 
+function loginSistem() {
   fakeLogin();
 }
 
-function fakeLogin()
-{
+function fakeLogin() {
   Swal.fire({
-    title: 'Error server!',
-    text: 'Server tidak bisa diakses..',
-    icon: 'error',
-    confirmButtonText: 'Kembali'
+    title: "Error server!",
+    text: "Server tidak bisa diakses..",
+    icon: "error",
+    confirmButtonText: "Kembali",
   });
 }
 
-function isiField()
-{
+function isiField() {
   Swal.fire({
-    title: 'Isi Field!!',
-    text: 'Harap isi username & password ..',
-    icon: 'warning',
-    confirmButtonText: 'Kembali'
+    title: "Isi Field!!",
+    text: "Harap isi username & password ..",
+    icon: "warning",
+    confirmButtonText: "Kembali",
   });
 }
 
-function prosesLogin(username, password)
-{
-  $.post('http://api.haxors.or.id/rini/test.php',{'username':username, 'password':password}, function(data){
-    let obj = JSON.parse(data);
-    let status = obj.status;
-    if(status === 'sukses'){
-      window.location.assign('mainApp/main.html');
-    }else{
-
-    }
-  });
+function prosesLogin(username, password){
+  $.post(routeToLogin, {username: username, password: password }, function(data){
+      let obj = JSON.parse(data);
+      let status = obj.status;
+      if(status === "sukses"){
+        window.location.assign("mainApp/main.html");
+      }
+    });
 }

@@ -20,9 +20,7 @@ var divUtama = new Vue({
 });
 
 // INISIALISASI 
-$(document).ready(function () {
-  document.querySelector("#txtUsername").focus();
-});
+
 
 // FUNCTION 
 function loginSistem() {
