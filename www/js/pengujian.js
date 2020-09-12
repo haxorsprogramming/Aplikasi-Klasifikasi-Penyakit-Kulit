@@ -1,8 +1,10 @@
 // ROUTE 
-var rGetSampel = 'http://api.haxors.or.id/rini/getNormalisasiSampel.php';
+var rGetSampel = "http://api.haxors.or.id/rini/getNormalisasiSampel.php";
+
 // INISIALISASI 
 $('#divHasilAnalisa').hide();
 $('.materialboxed').materialbox();
+
 // VUE OBJECT 
 var divHasilAnalisa = new Vue({
     el : '#divHasilAnalisa',
@@ -24,6 +26,7 @@ var divHasilAnalisa = new Vue({
     }
 });
 
+// FUNCTION 
 function getImg(){
     var sampul = document.querySelector('#txtFoto');
     var imgPrev = document.querySelector('.imgPrev');
