@@ -1,5 +1,6 @@
 //ROUTE 
 var routeToGetDataPenyakit = 'http://api.haxors.or.id/rini/getDaftarPenyakit.php';
+
 // VUE OBJECT 
 var divDaftarPenyakit = new Vue({
     el : '#divDaftarPenyakit',
@@ -13,6 +14,7 @@ var divDaftarPenyakit = new Vue({
         }
     }
 });
+
 //INISIALISASI
 $.post(routeToGetDataPenyakit, function(data){
     let obj = JSON.parse(data);

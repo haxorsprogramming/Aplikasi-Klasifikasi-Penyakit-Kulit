@@ -1,8 +1,11 @@
 // ROUTE 
-var rGetSampel = 'http://api.haxors.or.id/rini/getNormalisasiSampel.php';
+var rGetSampel = "http://api.haxors.or.id/rini/getNormalisasiSampel.php";
+var rHitungNaiveBayes = "";
+
 // INISIALISASI 
 $('#divHasilAnalisa').hide();
 $('.materialboxed').materialbox();
+
 // VUE OBJECT 
 var divHasilAnalisa = new Vue({
     el : '#divHasilAnalisa',
@@ -19,11 +22,12 @@ var divHasilAnalisa = new Vue({
     methods : {
         hitungAtc : function()
         {
-            console.log("Tes");
+            hitungNaiveBayes();
         }
     }
 });
 
+// FUNCTION 
 function getImg(){
     var sampul = document.querySelector('#txtFoto');
     var imgPrev = document.querySelector('.imgPrev');
@@ -131,4 +135,9 @@ function getImg(){
 
     }
 
+}
+
+function hitungNaiveBayes()
+{
+    
 }
