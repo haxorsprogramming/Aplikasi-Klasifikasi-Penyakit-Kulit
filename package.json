@@ -1,8 +1,8 @@
 {
-  "name": "helloworld",
-  "displayName": "HelloCordova",
+  "name": "appsKlasifikasi",
+  "displayName": "Aplikasi Klasifikasi Penyakit Kulit",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Aplikasi untuk mendeteksi penyakit kulit.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
