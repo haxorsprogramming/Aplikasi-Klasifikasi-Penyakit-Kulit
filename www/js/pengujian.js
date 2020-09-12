@@ -1,5 +1,6 @@
 // ROUTE 
 var rGetSampel = "http://api.haxors.or.id/rini/getNormalisasiSampel.php";
+var rHitungNaiveBayes = "";
 
 // INISIALISASI 
 $('#divHasilAnalisa').hide();
@@ -21,7 +22,7 @@ var divHasilAnalisa = new Vue({
     methods : {
         hitungAtc : function()
         {
-            console.log("Tes");
+            hitungNaiveBayes();
         }
     }
 });
@@ -134,4 +135,9 @@ function getImg(){
 
     }
 
+}
+
+function hitungNaiveBayes()
+{
+    
 }
