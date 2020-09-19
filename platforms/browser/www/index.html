@@ -29,12 +29,12 @@
                 </div>
                 <div style='text-align:center;'>
                 <h3><strong>Aplikasi Klasifikasi Penyakit Kulit</strong></h3>
-                <h4>Program Studi {{dataInstansi.programStudi}}</h4>
+                <h4>Program Studi Ilmu Komputer</h4>
                 <h5>Universitas Islam Negeri Sumatera Utara</h5>
                 <div style="margin-top:20px;">
                   <div id='frm_login'>
                       <div class="form-group">
-                          <input type="text" class="form-control form-control-lg" id="txtUsername" autofocus placeholder="Username">
+                          <input type="text" class="form-control form-control-lg" id="txtUsername" placeholder="Username">
                         </div>
                         <div class="form-group">
                           <input type="password" class="form-control form-control-lg" id="txtPassword" placeholder="Password">
@@ -46,8 +46,10 @@
                   </div>
                   <div class="mt-2">
                       <div style='padding-top:22px;'>
-                        <h6 class="font-weight-light">By : {{pengembang}}</h5>
-                        <i><strong><span id='divStatServer'></span></strong></i>
+                        <h6 class="font-weight-light">Develop by : {{pengembang}}</h5>
+                          <div class="badges">
+                            <small>Status koneksi </small><a href="#!" id='capCekServer' class="badge">-</a>
+                          </div>
                       </div>
                   </div>
                 </div>
@@ -62,13 +64,13 @@
   </div>
   <!-- container-scroller -->
 </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="ladun/login/vendors/base/vendor.bundle.base.js"></script>
-  <script src="https://demo.getstisla.com/assets/modules/izitoast/js/iziToast.min.js"></script>
-  <!-- inject:js -->
-  <script src="ladun/login/js/template.js"></script>
-  <script src="ladun/login/js/login.js"></script>
-  <!-- endinject -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="ladun/login/vendors/base/vendor.bundle.base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<!-- inject:js -->
+<script src="ladun/login/js/template.js"></script>
+<script src="ladun/login/js/login.js"></script>
+<!-- endinject -->
 </body>
 
 </html>
