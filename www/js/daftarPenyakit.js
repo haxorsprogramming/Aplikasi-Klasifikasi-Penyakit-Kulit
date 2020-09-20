@@ -1,5 +1,5 @@
 //ROUTE 
-var routeToGetDataPenyakit = 'http://api.haxors.or.id/rini/getDaftarPenyakit.php';
+var routeToGetDataPenyakit = 'http://api.haxors.or.id/rini/get_data_cluster.php';
 
 // VUE OBJECT 
 var divDaftarPenyakit = new Vue({
@@ -21,7 +21,7 @@ $.post(routeToGetDataPenyakit, function(data){
     obj.forEach(renderCluster);
     function renderCluster(item, index){
         divDaftarPenyakit.listPenyakit.push({
-            kdCluster : obj[index].kdCluster, nama : obj[index].nama, ciri : obj[index].ciri
+            kdCluster : obj[index].kdCluster, nama : obj[index].nama, ciri : obj[index].deks
         });
     }
 });
