@@ -10,8 +10,11 @@ var divUtama = new Vue({
   methods : {
     masukAtc : function()
     {
-      
       prosesLogin();
+    },
+    daftarAtc : function()
+    {
+      console.log("happp");
     }
   }
 });
