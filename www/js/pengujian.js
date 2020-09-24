@@ -1,5 +1,5 @@
 // ROUTE 
-var rGetSampel = "http://api.haxors.or.id/rini/get_normalisasi.php";
+var rGetNormalisasi = "http://api.haxors.or.id/rini/get_normalisasi.php";
 var rHitungNaiveBayes = "";
 
 // INISIALISASI 
@@ -10,10 +10,10 @@ $('.materialboxed').materialbox();
 var divHasilAnalisa = new Vue({
     el : '#divHasilAnalisa',
     data : {
-        red : '',
-        green : '',
-        blue : '',
-        brightness : '',
+        red : 0,
+        green : 0,
+        blue : 0,
+        brightness : 0,
         normalisasiCitra : [{red : 0, green : 0, blue : 0, brightness : 0}]
     },
     methods : {
@@ -64,9 +64,20 @@ function hitungNaiveBayes()
         let konfirm = window.confirm("Mulai perhitungan bayes?");
         if(konfirm === true){
             $('#btnHitung').addClass('disabled');
-            setTimeout(function(){
-                Materialize.toast("Tak ada respon dari server", 1100);
-            }, 2000);
+            let red = divHasilAnalisa.red;
+            let green = divHasilAnalisa.green;
+            let blue = divHasilAnalisa.blue;
+            let brightness = divHasilAnalisa.brightness;
+            let dataSend = {'a1':red, 'a2':green, 'a3':blue, 'a4':brightness}
+
+            $.post(rGetNormalisasi, dataSend, function(data){
+                let obj = JSON.parse(data);
+                console.log(obj);
+            });
+            console.log(red);
+            // setTimeout(function(){
+            //     Materialize.toast("Tak ada respon dari server", 1100);
+            // }, 2000);
         }else{
 
         }
