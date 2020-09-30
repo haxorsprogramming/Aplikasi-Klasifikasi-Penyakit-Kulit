@@ -1,5 +1,5 @@
 // ROUTE 
-var rGetSampel = "http://api.haxors.or.id/rini/getNormalisasiSampel.php";
+var rGetNormalisasi = "http://api.haxors.or.id/rini/get_normalisasi.php";
 var rHitungNaiveBayes = "";
 
 // INISIALISASI 
@@ -10,14 +10,11 @@ $('.materialboxed').materialbox();
 var divHasilAnalisa = new Vue({
     el : '#divHasilAnalisa',
     data : {
-        alpha : '',
-        black : '',
-        blue : '',
-        brightness : '',
-        green : '',
-        red : '',
-        white : '',
-        normalisasiCitra : [{alpha : 0, black : 0, blue : 0, brightness : 0, green : 0, red : 0, white : 0}]
+        red : 0,
+        green : 0,
+        blue : 0,
+        brightness : 0,
+        normalisasiCitra : [{red : 0, green : 0, blue : 0, brightness : 0}]
     },
     methods : {
         hitungAtc : function()
@@ -39,95 +36,18 @@ function getImg(){
         imgPrev.src = hasil;
 
         resemble(hasil).onComplete(function(data){
-            let alpha = data.alpha;
-            let black = data.black;
+            
+            let red = data.red;
+            let green = data.green;
             let blue = data.blue;
             let brightness = data.brightness;
-            let green = data.green;
-            let red = data.red;
-            let white = data.white;
-            var arrNilai = ['alpha', 'black', 'blue', 'brightness', 'green', 'red', 'white'];
+            
+            var arrNilai = ['red', 'green', 'blue', 'brightness'];
 
-            let total = parseInt(alpha) + parseInt(black) + parseInt(blue) + parseInt(brightness) + parseInt(green) + parseInt(red) + parseInt(white);
-            console.log(data);
-            //normalisasi alpha
-            $.post(rGetSampel, {'tipe':arrNilai[0]}, function(data){
-                let obj = JSON.parse(data);
-                if(parseInt(obj.nilai) === 0){
-                    divHasilAnalisa.normalisasiCitra[0].alpha = 0;
-                }else{
-                    let fin = parseInt(alpha) / parseInt(obj.nilai);
-                    divHasilAnalisa.normalisasiCitra[0].alpha = fin;
-                }
-            });
-              //normalisasi black
-              $.post(rGetSampel, {'tipe':arrNilai[1]}, function(data){
-                let obj = JSON.parse(data);
-                if(parseInt(obj.nilai) === 0){
-                    divHasilAnalisa.normalisasiCitra[0].black = 0;
-                }else{
-                    let fin = parseInt(black) / parseInt(obj.nilai);
-                    divHasilAnalisa.normalisasiCitra[0].black = fin;
-                }
-            });
-              //normalisasi blue
-              $.post(rGetSampel, {'tipe':arrNilai[2]}, function(data){
-                let obj = JSON.parse(data);
-                if(parseInt(obj.nilai) === 0){
-                    divHasilAnalisa.normalisasiCitra[0].blue = 0;
-                }else{
-                    let fin = parseInt(blue) / parseInt(obj.nilai);
-                    divHasilAnalisa.normalisasiCitra[0].blue = fin;
-                }
-            });
-              //normalisasi brightness
-              $.post(rGetSampel, {'tipe':arrNilai[3]}, function(data){
-                let obj = JSON.parse(data);
-                if(parseInt(obj.nilai) === 0){
-                    divHasilAnalisa.normalisasiCitra[0].brightness = 0;
-                }else{
-                    let fin = parseInt(brightness) / parseInt(obj.nilai);
-                    divHasilAnalisa.normalisasiCitra[0].brightness = fin;
-                }
-            });
-              //normalisasi green
-              $.post(rGetSampel, {'tipe':arrNilai[4]}, function(data){
-                let obj = JSON.parse(data);
-                if(parseInt(obj.nilai) === 0){
-                    divHasilAnalisa.normalisasiCitra[0].green = 0;
-                }else{
-                    let fin = parseInt(green) / parseInt(obj.nilai);
-                    divHasilAnalisa.normalisasiCitra[0].green = fin;
-                }
-            });
-              //normalisasi red
-              $.post(rGetSampel, {'tipe':arrNilai[5]}, function(data){
-                let obj = JSON.parse(data);
-                if(parseInt(obj.nilai) === 0){
-                    divHasilAnalisa.normalisasiCitra[0].red = 0;
-                }else{
-                    let fin = parseInt(red) / parseInt(obj.nilai);
-                    divHasilAnalisa.normalisasiCitra[0].red = fin;
-                }
-            });
-              //normalisasi white
-              $.post(rGetSampel, {'tipe':arrNilai[6]}, function(data){
-                let obj = JSON.parse(data);
-                if(parseInt(obj.nilai) === 0){
-                    divHasilAnalisa.normalisasiCitra[0].white = 0;
-                }else{
-                    let fin = parseInt(white) / parseInt(obj.nilai);
-                    divHasilAnalisa.normalisasiCitra[0].white = fin;
-                }
-            });
-
-            divHasilAnalisa.alpha = alpha;
-            divHasilAnalisa.black = black;
+            divHasilAnalisa.red = red;
+            divHasilAnalisa.green = green;
             divHasilAnalisa.blue = blue;
             divHasilAnalisa.brightness = brightness;
-            divHasilAnalisa.green = green;
-            divHasilAnalisa.red = red;
-            divHasilAnalisa.white = white;
 
             $('#divHasilAnalisa').show();
 
@@ -139,5 +59,30 @@ function getImg(){
 
 function hitungNaiveBayes()
 {
+    let statusKoneksi = navigator.onLine;
+    if(statusKoneksi === true){
+        let konfirm = window.confirm("Mulai perhitungan bayes?");
+        if(konfirm === true){
+            $('#btnHitung').addClass('disabled');
+            let red = divHasilAnalisa.red;
+            let green = divHasilAnalisa.green;
+            let blue = divHasilAnalisa.blue;
+            let brightness = divHasilAnalisa.brightness;
+            let dataSend = {'a1':red, 'a2':green, 'a3':blue, 'a4':brightness}
+
+            $.post(rGetNormalisasi, dataSend, function(data){
+                let obj = JSON.parse(data);
+                console.log(obj);
+            });
+            console.log(red);
+            // setTimeout(function(){
+            //     Materialize.toast("Tak ada respon dari server", 1100);
+            // }, 2000);
+        }else{
+
+        }
+    }else{
+        window.alert("Tidak terhubung ke server, pastikan smartphone terhubung ke internet!!!");
+    }
     
 }
