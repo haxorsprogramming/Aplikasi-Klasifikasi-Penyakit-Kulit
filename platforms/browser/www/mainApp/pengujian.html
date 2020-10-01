@@ -1,9 +1,9 @@
 <div class="row" style="margin-top: 20px;">
     <div>
         <h5 class="light">Pengujian</h5><br/>
-        <small>Silahkan ambil gambar</small>
+        <small id='capHola'>Silahkan ambil gambar</small>
     </div>
-  <div class="file-field input-field" style="padding-bottom: 25px;">
+  <div class="file-field input-field" id='btnBukanTakKeren' style="padding-bottom: 25px;">
     <div class="btn">
        <div class="icon-preview col s6 m3"><i class="material-icons dp48">camera_alt</i></div>
       <input type="file" id="txtFoto" name="txtFoto" onchange="getImg()" />
@@ -37,14 +37,41 @@
         <tr>
             <td>Brightness</td><td>{{brightness}}</td><td>{{normalisasiCitra[0].brightness}}</td>
         </tr>
-        
-        
       </tbody>
   </table>
+  <div id='divHasilPengujian'>
+    <h4 class="light">Hasil Pengujian</h4>
+    <hr/>
+    <table>
+      <tr>
+        <th>Dataset</th><th>Cluster</th>
+      </tr>
+      <tr>
+        <td>{{probCitra[0].eksim}}</td><td>Eksim</td>
+      </tr>
+      <tr>
+        <td>{{probCitra[0].psioriasis}}</td><td>Psioriasis</td>
+      </tr>
+      <tr>
+        <td>{{probCitra[0].jerawat}}</td><td>jerawat</td>
+      </tr>
+      <tr>
+        <td>{{probCitra[0].cacar_air}}</td><td>Cacar Air</td>
+      </tr>
+      <tr>
+        <td>{{probCitra[0].campak}}</td><td>Campak</td>
+      </tr>
+    </table>
+    <h5>Data Uji : {{probSay}}</h5>
+    <h5>Hasil : <strong>{{penyakitFin}}</strong></h5>
+  </div>
   <div style="margin-top:15px;">
-    <a href='#!' @click='hitungAtc' class="waves-effect waves-light btn"><i class="material-icons left">assessment</i> Proses Perhitungan Bayes</a>
+    <a href='#!' @click='hitungAtc' id='btnHitung' class="waves-effect waves-light btn"><i class="material-icons left">assessment</i> Proses Perhitungan Bayes</a>
+    <a href='#!' @click='ujiUlang' id='btnHitungUlang'>Mulai Pengujian Ulang</a>
   </div>
   
 </div>
 
 <script src="../js/pengujian.js"></script>
+
+<!-- Meaow  -->
