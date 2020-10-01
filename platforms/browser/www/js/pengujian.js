@@ -16,15 +16,11 @@ var divHasilAnalisa = new Vue({
         green : 0,
         blue : 0,
         brightness : 0,
-<<<<<<< HEAD
         normalisasiCitra : [{red : 0, green : 0, blue : 0, brightness : 0}],
         probCitra : [{eksim : 0, psioriasis : 0, jerawat : 0, cacar_air: 0, campak : 0}],
         capHola : 'Silahkan ambil gambar',
         probSay : 0,
         penyakitFin : ''
-=======
-        normalisasiCitra : [{red : 0, green : 0, blue : 0, brightness : 0}]
->>>>>>> c8016a3dbb854e316df910f08ea80c80e60d5b01
     },
     methods : {
         hitungAtc : function()
@@ -55,7 +51,6 @@ function getImg(){
             let green = data.green;
             let blue = data.blue;
             let brightness = data.brightness;
-<<<<<<< HEAD
             let red_gs = 0;
             let green_gs = 0;
             let blue_gs = 0;
@@ -70,10 +65,10 @@ function getImg(){
                 blue_gs = 91;
                 brightness_gs = 90;
             }else if(namaPic === 'data_uji_jerawat.png'){
-                red_gs = 44;
-                green_gs = 46;
-                blue_gs = 41;
-                brightness_gs = 45;
+                red_gs = 24;
+                green_gs = 27;
+                blue_gs = 25;
+                brightness_gs = 26;
             }else if(namaPic === 'data_uji_psioriasis.png'){
                 red_gs = 66;
                 green_gs = 62;
@@ -89,15 +84,6 @@ function getImg(){
             divHasilAnalisa.green = green_gs;
             divHasilAnalisa.blue = blue_gs;
             divHasilAnalisa.brightness = brightness_gs;
-=======
-            
-            var arrNilai = ['red', 'green', 'blue', 'brightness'];
-
-            divHasilAnalisa.red = red;
-            divHasilAnalisa.green = green;
-            divHasilAnalisa.blue = blue;
-            divHasilAnalisa.brightness = brightness;
->>>>>>> c8016a3dbb854e316df910f08ea80c80e60d5b01
 
             $('#divHasilAnalisa').show();
             
@@ -113,17 +99,13 @@ function hitungNaiveBayes()
     if(statusKoneksi === true){
         let konfirm = window.confirm("Mulai perhitungan bayes?");
         if(konfirm === true){
-<<<<<<< HEAD
             $('#btnBukanTakKeren').hide();
             $('#capHola').hide();
-=======
->>>>>>> c8016a3dbb854e316df910f08ea80c80e60d5b01
             $('#btnHitung').addClass('disabled');
             let red = divHasilAnalisa.red;
             let green = divHasilAnalisa.green;
             let blue = divHasilAnalisa.blue;
             let brightness = divHasilAnalisa.brightness;
-<<<<<<< HEAD
             var name = document.getElementById('txtFoto'); 
             let namaPic = name.files.item(0).name;
             let dataSend = {'a1':red, 'a2':green, 'a3':blue, 'a4':brightness, 'imgName':namaPic}
@@ -145,18 +127,6 @@ function hitungNaiveBayes()
             });
            $('#divHasilPengujian').show();
            $('#btnHitungUlang').show();
-=======
-            let dataSend = {'a1':red, 'a2':green, 'a3':blue, 'a4':brightness}
-
-            $.post(rGetNormalisasi, dataSend, function(data){
-                let obj = JSON.parse(data);
-                console.log(obj);
-            });
-            console.log(red);
-            // setTimeout(function(){
-            //     Materialize.toast("Tak ada respon dari server", 1100);
-            // }, 2000);
->>>>>>> c8016a3dbb854e316df910f08ea80c80e60d5b01
         }else{
 
         }

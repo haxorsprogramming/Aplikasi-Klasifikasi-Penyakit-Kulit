@@ -1,10 +1,10 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "Aplikasi Identifikasi Penyakit Kulit",
-  "short_name": "Aplikasi Identifikasi Penyakit Kulit",
-  "version": "io.cordova.hellocordova",
-  "description": "Aplikasi identifikasi penyakit kulit dengan tekstur warna",
+  "name": "Aplikasi Klasifikasi Penyakit Kulit",
+  "short_name": "Aplikasi Klasifikasi Penyakit Kulit",
+  "version": "io.cordova.appklasifikasi",
+  "description": "Aplikasi untuk mendeteksi jenis penyakit",
   "author": "Rini Fadillah",
   "icons": [],
   "start_url": "index.html"

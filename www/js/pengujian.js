@@ -65,10 +65,10 @@ function getImg(){
                 blue_gs = 91;
                 brightness_gs = 90;
             }else if(namaPic === 'data_uji_jerawat.png'){
-                red_gs = 44;
-                green_gs = 46;
-                blue_gs = 41;
-                brightness_gs = 45;
+                red_gs = 24;
+                green_gs = 27;
+                blue_gs = 25;
+                brightness_gs = 26;
             }else if(namaPic === 'data_uji_psioriasis.png'){
                 red_gs = 66;
                 green_gs = 62;
