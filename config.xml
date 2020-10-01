@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Aplikasi Identifikasi Penyakit Kulit</name>
+<widget id="io.cordova.appklasifikasi" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Aplikasi Klasifikasi Penyakit Kulit</name>
     <description>
-        Aplikasi identifikasi penyakit kulit dengan tekstur warna
+       Aplikasi untuk mendeteksi jenis penyakit
     </description>
-    <author email="iamrini@haxors.or.id" href="http://rini.haxors.or.id">
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
         Rini Fadillah
     </author>
     <content src="index.html" />
@@ -18,6 +18,7 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <icon src="res/android/icon-uin.png" platform="android" width="57" height="57" density="mdpi" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
