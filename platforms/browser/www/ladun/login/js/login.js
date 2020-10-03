@@ -1,5 +1,5 @@
 // ROUTE 
-var routeToLogin = 'http://api.haxors.or.id/rini/login_proses.php';
+var routeToLogin = 'https://api.haxors.or.id/rini/login_proses.php';
 
 // VUE OBJECT 
 var divUtama = new Vue({
@@ -14,7 +14,7 @@ var divUtama = new Vue({
     },
     daftarAtc : function()
     {
-      console.log("happp");
+      window.location.assign('daftar.html');
     }
   }
 });
