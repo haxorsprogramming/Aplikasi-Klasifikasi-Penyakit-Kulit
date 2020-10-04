@@ -1,5 +1,5 @@
 //ROUTE 
-var routeToGetDataPenyakit = 'http://api.haxors.or.id/rini/get_data_cluster.php';
+var routeToGetDataPenyakit = 'https://api.haxors.or.id/rini/get_data_cluster.php';
 
 // VUE OBJECT 
 var divDaftarPenyakit = new Vue({

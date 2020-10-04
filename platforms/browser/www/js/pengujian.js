@@ -1,5 +1,5 @@
 // ROUTE 
-var rGetNormalisasi = "http://api.haxors.or.id/rini/get_normalisasi.php";
+var rGetNormalisasi = "https://api.haxors.or.id/rini/get_normalisasi.php";
 var rHitungNaiveBayes = "";
 var rGetHasil = "";
 
